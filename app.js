@@ -1,29 +1,152 @@
-const express = require("express");
+import express from "express";
+import { fileURLToPath } from "url";
+import path from "path";
+import UAParser from "ua-parser-js";
+
+import * as Prismic from "@prismicio/client";
+import * as PrismicH from "@prismicio/helpers";
+import dotenv from "dotenv";
+import fetch from "node-fetch";
+
+dotenv.config();
 const app = express();
-const path = require('path')
-const port = 3000;
+const port = process.env.PORT || 3000;
 
+const initApi = (req) => {
+  return Prismic.createClient(process.env.PRISMIC_ENDPOINT, {
+    accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+    req,
+    fetch,
+  });
+};
 
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
+const HandleLinkResolver = (doc) => {
+  if (doc.type === "product") {
+    return `/detail/${doc.slug}`;
+  }
 
-app.get("/", (req, res) => {
-  res.render("pages/home");
+  if (doc.type === "collections") {
+    return "/collections";
+  }
+
+  if (doc.type === "about") {
+    return `/about`;
+  }
+  return "/";
+};
+
+app.use((req, res, next) => {
+  res.locals.ctx = {
+    endpoint: process.env.PRISMIC_ENDPOINT,
+    linkResolver: HandleLinkResolver,
+  };
+  res.locals.PrismicH = PrismicH;
+
+  next();
 });
 
-app.get("/about", (req, res) => {
-  res.render("pages/about");
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+app.locals.basedir = app.get("views");
+
+const handleRequest = async (api) => {
+  try {
+    const [
+      meta,
+      preloader,
+      navigation,
+      home,
+      about,
+      collections,
+      // document,
+    ] = await Promise.all([
+      api.getSingle("meta"),
+      api.getSingle("preloader"),
+      api.getSingle("navigation"),
+      api.getSingle("home"),
+      api.getSingle("about"),
+      api.getAllByType("collection", {
+        fetchLinks: "product.image",
+      }),
+    ]);
+
+    const assets = [];
+    home.data.gallery.forEach((item) => {
+      assets.push(item.image.url);
+    });
+
+    about.data.gallery.forEach((item) => {
+      assets.push(item.image.url);
+    });
+
+    about.data.body.forEach((section) => {
+      if (section.slice_type === "gallery") {
+        section.items.forEach((item) => {
+          assets.push(item.image.url);
+        });
+      }
+    });
+    collections.forEach((collection) => {
+      collection.data.products.forEach((item) => {
+        // console.log(item.product)
+        // assets.push(item.products_product.data.image.url);
+      });
+    });
+
+    return {
+      assets,
+      preloader,
+      meta,
+      navigation,
+      home,
+      about,
+      collections,
+    };
+  } catch (error) {
+    console.error(
+      "Une erreur est survenue lors de la requête Prismic : ",
+      error
+    );
+    throw error;
+  }
+};
+
+app.get("/", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+  res.render("pages/home", { ...defaults });
 });
 
-app.get("/details/:id", (req, res) => {
-  res.render("pages/details");
+app.get("/about", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+  res.render("pages/about", { ...defaults });
 });
 
-
-app.get("/collections", (req, res) => {
-  res.render("pages/collections");
+app.get("/collections", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+  res.render("pages/collections", { ...defaults });
 });
 
+app.get("/detail/:uid", async (req, res) => {
+  const api = await initApi(req);
+  const defaults = await handleRequest(api);
+
+  const product = await api.getByUID("product", req.params.uid, {
+    fetchLinks: "collection.title",
+  });
+
+  if (product) {
+    res.render("pages/detail", {
+      product,
+      ...defaults,
+    });
+  } else {
+    res.status(404).send("Page not found");
+  }
+});
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

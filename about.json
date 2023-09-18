@@ -1,0 +1,342 @@
+{
+  "page": 1,
+  "results_per_page": 20,
+  "results_size": 1,
+  "total_results_size": 1,
+  "total_pages": 1,
+  "next_page": null,
+  "prev_page": null,
+  "results": [
+    {
+      "id": "ZQHDjRIAACMAnryF",
+      "uid": null,
+      "url": null,
+      "type": "about",
+      "href": "https://floema-course-bizarro-project.cdn.prismic.io/api/v2/documents/search?ref=ZQLCBxIAACMAoF52&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22ZQHDjRIAACMAnryF%22%29+%5D%5D",
+      "tags": [],
+      "first_publication_date": "2023-09-13T14:34:23+0000",
+      "last_publication_date": "2023-09-13T14:34:23+0000",
+      "slugs": ["about"],
+      "linked_documents": [],
+      "lang": "fr-fr",
+      "alternate_languages": [],
+      "data": {
+        "gallery": [
+          {
+            "image": {
+              "dimensions": { "width": 2048, "height": 1536 },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/slicemachine-blank/26d81419-4d65-46b8-853e-8ea902e160c1_groovy.png?auto=compress,format"
+            }
+          },
+          {
+            "image": {
+              "dimensions": { "width": 2048, "height": 1536 },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/slicemachine-blank/6b2bf485-aa12-44ef-8f06-dce6b91b9309_dancing.png?auto=compress,format"
+            }
+          },
+          {
+            "image": {
+              "dimensions": { "width": 2048, "height": 1536 },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/slicemachine-blank/30d6602b-c832-4379-90ef-100d32c5e4c6_selfie.png?auto=compress,format"
+            }
+          },
+          {
+            "image": {
+              "dimensions": { "width": 2048, "height": 1536 },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/slicemachine-blank/b07ef5eb-891d-44f2-a239-2fea5a999116_reading-side.png?auto=compress,format"
+            }
+          },
+          {
+            "image": {
+              "dimensions": { "width": 2048, "height": 1536 },
+              "alt": null,
+              "copyright": null,
+              "url": "https://images.prismic.io/slicemachine-blank/76bc1e6e-67a0-41d9-9c3c-5a5d3161e6a9_bikini.png?auto=compress,format"
+            }
+          }
+        ],
+        "body": [
+          {
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Creating new dialogues\nbetween threads and metal",
+                  "spans": []
+                }
+              ]
+            },
+            "items": [{}],
+            "id": "title$ed06a161-cf4d-4a7c-9050-230b7d663814",
+            "slice_type": "title",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "label": "About us",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "spans": [{ "start": 0, "end": 11, "type": "strong" }]
+                }
+              ],
+              "image": {
+                "dimensions": { "width": 1333, "height": 2000 },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.prismic.io/floema-course-bizarro-project/4a70fb84-a65a-49bb-ac7a-772bcee90ed3_women_about.jpg?auto=compress,format"
+              },
+              "type": "Left"
+            },
+            "items": [{}],
+            "id": "content$4c1f393d-9150-40d4-9577-3f97f8abd6a4",
+            "slice_type": "content",
+            "slice_label": null
+          },
+          {
+            "primary": { "title": "floema", "label": null },
+            "items": [
+              {
+                "image": {
+                  "dimensions": { "width": 831, "height": 1174 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/52d1d66a-3d41-4715-bfc6-7c755576c4b1_14.png?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 831, "height": 1174 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/7e72ea3b-63d7-4ea1-9936-8928182a4d14_5.png?auto=compress,format"
+                }
+              }
+            ],
+            "id": "highlight$bdd3b1b2-51c5-4318-99e5-47600d1eba3b",
+            "slice_type": "highlight",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "label": "The Brand",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "spans": [{ "start": 0, "end": 11, "type": "strong" }]
+                }
+              ],
+              "image": {
+                "dimensions": { "width": 831, "height": 1174 },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.prismic.io/floema-course-bizarro-project/28fccc7b-1614-4457-b265-6b984c09b171_15.png?auto=compress,format"
+              },
+              "type": "Left"
+            },
+            "items": [{}],
+            "id": "content$574e4492-c363-49cb-b936-caf7824fe06d",
+            "slice_type": "content",
+            "slice_label": null
+          },
+          {
+            "primary": {},
+            "items": [
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/93d29cec-ae2f-4f7c-b6a7-fbf024f02b7c_a.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/fd61077b-4bfd-4805-8b07-987586193151_b.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/8b031407-321a-4095-9603-3722e3521059_c.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/230434fa-68dd-43ac-96af-d8788c4cf09c_d.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/8c50556c-fd1b-4565-a657-83f042581ee0_e.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/7e251ae9-4979-4df7-bef5-1e950e1b7cb0_f.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/f895f86b-2f7c-4c0f-8b78-2b24e4d03a45_g.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/2dbef122-7e4e-44f5-9506-0919ba2429f7_h.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/720ccb06-0186-4527-b399-c841dbed8747_i.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/07a2afe9-8dec-4bc9-b30a-5ca2ba6ea74e_11.jpg?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 1360, "height": 1920 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/9845ebd8-798b-4900-8d43-2d85c374892e_9.jpg?auto=compress,format"
+                }
+              }
+            ],
+            "id": "gallery$da0d81a2-afec-415a-8e6d-dd1b263ff0c6",
+            "slice_type": "gallery",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "The surprise of what is possible\nto make with a simple \nand thin thread",
+                  "spans": []
+                }
+              ]
+            },
+            "items": [{}],
+            "id": "title$5c1f507d-bc4f-429c-8801-a5eec472f67c",
+            "slice_type": "title",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "label": "Jewelry care",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "spans": [{ "start": 0, "end": 11, "type": "strong" }]
+                }
+              ],
+              "image": {
+                "dimensions": { "width": 831, "height": 1174 },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.prismic.io/floema-course-bizarro-project/57983207-2bb3-48ce-80bc-f54f10ab17bb_12.png?auto=compress,format"
+              },
+              "type": "Right"
+            },
+            "items": [{}],
+            "id": "content$83b53b14-32f8-4c01-a9a7-e92e9b5169fe",
+            "slice_type": "content",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "label": "Sustainability",
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Lorem Ipsumis simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+                  "spans": [{ "start": 0, "end": 11, "type": "strong" }]
+                }
+              ],
+              "image": {
+                "dimensions": { "width": 1360, "height": 1920 },
+                "alt": null,
+                "copyright": null,
+                "url": "https://images.prismic.io/floema-course-bizarro-project/fd61077b-4bfd-4805-8b07-987586193151_b.jpg?auto=compress,format"
+              },
+              "type": "Left"
+            },
+            "items": [{}],
+            "id": "content$2e701461-9d46-4b79-9fa9-5a87b8b45595",
+            "slice_type": "content",
+            "slice_label": null
+          },
+          {
+            "primary": {
+              "title": "Instagram",
+              "label": "Follow me on instagram"
+            },
+            "items": [
+              {
+                "image": {
+                  "dimensions": { "width": 831, "height": 1174 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/ec71d61c-6d1f-4ade-8dea-f1604e8746e2_3.png?auto=compress,format"
+                }
+              },
+              {
+                "image": {
+                  "dimensions": { "width": 831, "height": 1174 },
+                  "alt": null,
+                  "copyright": null,
+                  "url": "https://images.prismic.io/floema-course-bizarro-project/16af9f21-df69-4995-845b-f61375dc49d4_1.png?auto=compress,format"
+                }
+              }
+            ],
+            "id": "highlight$b0df4a49-2ac4-430a-9c3a-086c6bed2c64",
+            "slice_type": "highlight",
+            "slice_label": null
+          }
+        ]
+      }
+    }
+  ],
+  "version": "3d2068b",
+  "license": "All Rights Reserved"
+}
