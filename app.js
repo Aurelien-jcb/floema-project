@@ -20,7 +20,7 @@ const initApi = (req) => {
   });
 };
 
-const HandleLinkResolver = (doc) => {
+const handleLinkResolver = (doc) => {
   if (doc.type === "product") {
     return `/detail/${doc.slug}`;
   }
@@ -36,12 +36,14 @@ const HandleLinkResolver = (doc) => {
 };
 
 app.use((req, res, next) => {
-  res.locals.ctx = {
-    endpoint: process.env.PRISMIC_ENDPOINT,
-    linkResolver: HandleLinkResolver,
-  };
-  res.locals.PrismicH = PrismicH;
+  res.locals.links = handleLinkResolver;
 
+  res.locals.Numbers = index => {
+    return index == 0 ? 'One' : index == 0 ? 'One': index == 1 ? 'Two' : index == 2 ? 'Three': index == 3 ? 'Four': '';
+  }
+
+  res.locals.PrismicH = PrismicH;
+  
   next();
 });
 
@@ -89,8 +91,7 @@ const handleRequest = async (api) => {
     });
     collections.forEach((collection) => {
       collection.data.products.forEach((item) => {
-        // console.log(item.product)
-        // assets.push(item.products_product.data.image.url);
+        assets.push(item.product.data.image.url);
       });
     });
 
@@ -133,7 +134,6 @@ app.get("/collections", async (req, res) => {
 app.get("/detail/:uid", async (req, res) => {
   const api = await initApi(req);
   const defaults = await handleRequest(api);
-
   const product = await api.getByUID("product", req.params.uid, {
     fetchLinks: "collection.title",
   });
@@ -147,6 +147,7 @@ app.get("/detail/:uid", async (req, res) => {
     res.status(404).send("Page not found");
   }
 });
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
