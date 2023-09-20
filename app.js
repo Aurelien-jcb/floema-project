@@ -2,15 +2,25 @@ import express from "express";
 import { fileURLToPath } from "url";
 import path from "path";
 import UAParser from "ua-parser-js";
-
-import * as Prismic from "@prismicio/client";
-import * as PrismicH from "@prismicio/helpers";
+import logger from "morgan";
+import bodyParser from "body-parser";
+import methodOverride from "method-override"
 import dotenv from "dotenv";
 import fetch from "node-fetch";
 
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(logger('dev'));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(methodOverride())
+app.use(errorHandler())
+
+import * as Prismic from "@prismicio/client";
+import * as PrismicH from "@prismicio/helpers";
+import errorHandler from "errorhandler";
 
 const initApi = (req) => {
   return Prismic.createClient(process.env.PRISMIC_ENDPOINT, {
@@ -38,12 +48,22 @@ const handleLinkResolver = (doc) => {
 app.use((req, res, next) => {
   res.locals.links = handleLinkResolver;
 
-  res.locals.Numbers = index => {
-    return index == 0 ? 'One' : index == 0 ? 'One': index == 1 ? 'Two' : index == 2 ? 'Three': index == 3 ? 'Four': '';
-  }
+  res.locals.Numbers = (index) => {
+    return index == 0
+      ? "One"
+      : index == 0
+      ? "One"
+      : index == 1
+      ? "Two"
+      : index == 2
+      ? "Three"
+      : index == 3
+      ? "Four"
+      : "";
+  };
 
   res.locals.PrismicH = PrismicH;
-  
+
   next();
 });
 
