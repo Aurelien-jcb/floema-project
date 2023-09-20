@@ -139,6 +139,7 @@ app.get("/detail/:uid", async (req, res) => {
   });
 
   if (product) {
+    console.log("🚀 ~ file: app.js:142 ~ app.get ~ product:", product)
     res.render("pages/detail", {
       product,
       ...defaults,
