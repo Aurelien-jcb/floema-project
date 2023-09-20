@@ -46,7 +46,7 @@ const handleLinkResolver = (doc) => {
 };
 
 app.use((req, res, next) => {
-  res.locals.links = handleLinkResolver;
+  res.locals.Link = handleLinkResolver;
 
   res.locals.Numbers = (index) => {
     return index == 0

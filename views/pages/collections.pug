@@ -8,7 +8,6 @@ block content
     .collections__wrapper 
       .collections__titles
         each collection, index in collections
-
           .collections__titles__label=`${home.data.collection} ${Numbers(index)}`
           .collections__titles__title=collection.data.title
 
@@ -16,7 +15,7 @@ block content
         .collection__gallery__wrapper 
           each collection in collections
             each product in collection.data.products
-              a.collections__gallery__link
+              a.collections__gallery__link(href=Link(product.product))
                 figure.collections__gallery__media
                   img.collections__gallery__media__image(alt=product.product.data.image.alt src=product.product.data.image.url)
       
