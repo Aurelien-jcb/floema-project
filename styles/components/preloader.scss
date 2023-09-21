@@ -1,11 +1,11 @@
 .preloader {
   @extend %cover;
-  align-items: center;
+  @extend %center;
+
   background-color: $color-contessa;
   color: $color-white;
-  display: none;
-  justify-content: center;
-  text-align: center
+  text-align: center;
+  display: none
 }
 .preloader__text {
   @extend %title-53;
