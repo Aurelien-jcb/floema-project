@@ -11,8 +11,10 @@ import fetch from "node-fetch";
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(methodOverride())
@@ -67,7 +69,6 @@ app.use((req, res, next) => {
   next();
 });
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 app.locals.basedir = app.get("views");
