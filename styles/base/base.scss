@@ -7,11 +7,11 @@
 
 html {
   @extend %cover;
-  overflow: hidden;
   $vw: 100vw;
   font-size: calc($vw / 1920px * 10px);
   position: fixed;
   line-height: 1;
+  overflow: hidden;
   background: $color-contessa;
   color: $color-white;
 
@@ -42,7 +42,7 @@ button {
 }
 
 img {
-  // opacity:0;
+  opacity: 0;
   transition: opacity 0.4s ease;
   vertical-align: middle;
 

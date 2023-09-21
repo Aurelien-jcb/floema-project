@@ -1,12 +1,11 @@
 .about {
   // @extend: cover;
-    // @extend %page;
-background: $color-cadet-blue;
-color: $color-bright-grey;
-
+  @extend %page;
+  background: $color-cadet-blue;
+  color: $color-bright-grey;
 }
 .about__wrapper {
-    padding-top: 10rem
+  padding-top: 10rem;
 }
 
 .about__title {
@@ -16,7 +15,7 @@ color: $color-bright-grey;
   margin: 0 auto;
   text-align: center;
 
-  @include media('<phone') {
+  @include media("<phone") {
     max-width: 67.7rem;
   }
 }
