@@ -4,11 +4,11 @@
   background: $color-contessa;
   color: $color-white;
   text-align: center;
-
-  z-index: z('preloader');
+  z-index: z("preloader");
+  // display: none;
 }
 .preloader__text {
-  font-size: 0;
+  font-size: 3rem;
   max-width: 66rem;
 
   span {
@@ -28,7 +28,7 @@
   left: 50%;
   transform: translateX(-50%);
 
-  @include media('<phone') {
+  @include media("<phone") {
     font-size: 2.5rem;
   }
 }

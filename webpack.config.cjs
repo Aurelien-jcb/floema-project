@@ -33,7 +33,7 @@ module.exports = {
         {
           from: "./shared",
           to: "",
-          noErrorOnMissing: true
+          noErrorOnMissing: true,
         },
       ],
     }),
@@ -67,6 +67,12 @@ module.exports = {
 
   module: {
     rules: [
+      {
+        test: /\.m?jsx?$/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
       {
         test: /\.js$/,
         use: {
