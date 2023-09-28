@@ -16,6 +16,7 @@ class App {
 
   createPreloader() {
     this.preloader = new Preloader();
+    this.preloader.once("completed", this.onPreloaded.bind(this));
   }
 
   createContent() {
@@ -34,6 +35,10 @@ class App {
     this.page = this.pages[this.template];
     this.page.create();
     this.page.show();
+  }
+
+  async onPreloaded() {
+    this.preloader.destroy();
   }
 
   async onChange({ url }) {
