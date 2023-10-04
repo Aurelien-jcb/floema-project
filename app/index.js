@@ -3,18 +3,28 @@ import Collections from "pages/Collections";
 import Details from "pages/Details";
 import About from "pages/About";
 import each from "lodash/each";
+
 import Preloader from "./components/Preloader";
+import Navigation from "./components/Navigation";
 
 class App {
   constructor() {
-    this.createPreloader();
     this.createContent();
+
+    this.createPreloader();
+    this.createNavigation();
     this.createPages();
 
     this.addLinkListeners();
     this.addEventListeners();
 
     this.update();
+  }
+
+  createNavigation() {
+    this.navigation = new Navigation({
+      template: this.template,
+    });
   }
 
   createPreloader() {
@@ -59,6 +69,8 @@ class App {
       const divContent = div.querySelector(".content");
 
       this.template = divContent.getAttribute("data-template");
+
+      this.navigation.onChange(this.template);
 
       this.content.setAttribute("data-template", this.template);
 

@@ -9,6 +9,9 @@ import Title from "../animations/Title";
 import Paragraph from "../animations/Paragraph";
 import Highlight from "../animations/Highlight";
 
+import { ColorsManager } from "classes/Colors";
+import AsyncLoad from "classes/AsyncLoad";
+
 export default class Page {
   constructor({ element, elements, id }) {
     this.selector = element;
@@ -18,6 +21,8 @@ export default class Page {
       animationsHighlights: "[data-animation='highlight']",
       animationsLabels: "[data-animation='label']",
       animationsParagraphs: "[data-animation='paragraph']",
+
+      preloaders: "[data-src]",
     };
     this.id = id;
     this.transformPrefix = Prefix("transform");
@@ -53,11 +58,17 @@ export default class Page {
     });
 
     this.createAnimations();
+    this.createPreloader();
+  }
+
+  createPreloader() {
+    this.preloaders = map(this.elements.preloaders, (element) => {
+      return new AsyncLoad({ element });
+    });
   }
 
   createAnimations() {
     this.animations = [];
-
     this.animationsHighlights = map(
       this.elements.animationsHighlights,
       (element) => {
@@ -95,6 +106,11 @@ export default class Page {
 
   show() {
     return new Promise((resolve) => {
+      ColorsManager.change({
+        backgroundColor: this.element.getAttribute("data-background"),
+        color: this.element.getAttribute("data-color"),
+      });
+
       this.animationIn = GSAP.timeline();
 
       this.animationIn.fromTo(
