@@ -67,6 +67,9 @@ export default class Page {
     });
   }
 
+  /**
+   * Animations
+   */
   createAnimations() {
     this.animations = [];
     this.animationsHighlights = map(
@@ -131,7 +134,7 @@ export default class Page {
 
   hide() {
     return new Promise((resolve) => {
-      this.removeEventListeners();
+      this.destroy();
       this.animationOut = GSAP.timeline();
 
       this.animationOut.to(this.element, {
@@ -141,6 +144,9 @@ export default class Page {
     });
   }
 
+  /**
+   * Events
+   */
   onMouseWheel(event) {
     const { pixelY } = NormalizeWheel(event);
     this.scroll.target += pixelY;
@@ -154,6 +160,9 @@ export default class Page {
     each(this.animations, (animation) => animation.onResize());
   }
 
+  /**
+   * Loops
+   */
   update() {
     this.scroll.target = GSAP.utils.clamp(
       0,
@@ -175,10 +184,21 @@ export default class Page {
       ] = `translateY(-${this.scroll.current}px)`;
   }
 
+  /**
+   * Events
+   */
   addEventListeners() {
     window.addEventListener("mousewheel", this.onMouseWheelEvent);
   }
+
   removeEventListeners() {
     window.removeEventListener("mousewheel", this.onMouseWheelEvent);
+  }
+
+  /**
+   * Destroy
+   */
+  destroy() {
+    this.removeEventListeners();
   }
 }

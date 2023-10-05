@@ -4,7 +4,7 @@ import path from "path";
 import UAParser from "ua-parser-js";
 import logger from "morgan";
 import bodyParser from "body-parser";
-import methodOverride from "method-override"
+import methodOverride from "method-override";
 import dotenv from "dotenv";
 import fetch from "node-fetch";
 
@@ -13,12 +13,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-app.use(logger('dev'));
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:false}))
-app.use(methodOverride())
-app.use(errorHandler())
+app.use(logger("dev"));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride());
+app.use(errorHandler());
 
 import * as Prismic from "@prismicio/client";
 import * as PrismicH from "@prismicio/helpers";
@@ -48,6 +48,12 @@ const handleLinkResolver = (doc) => {
 };
 
 app.use((req, res, next) => {
+  const ua = UAParser(req.headers["user-agent"]);
+
+  res.locals.isDesktop = ua.device.type === undefined;
+  res.locals.isPhone = ua.device.type === "mobile";
+  res.locals.isTablet = ua.device.type === "tablet";
+
   res.locals.Link = handleLinkResolver;
 
   res.locals.Numbers = (index) => {

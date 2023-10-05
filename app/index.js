@@ -55,7 +55,14 @@ class App {
     this.page.show();
   }
 
-  async onChange({ url }) {
+  onPopState() {
+    this.onChange({
+      url: window.location.pathname,
+      push: false,
+    });
+  }
+
+  async onChange({ url, push = true }) {
     await this.page.hide();
 
     const request = await window.fetch(url);
@@ -63,6 +70,8 @@ class App {
     if (request.status === 200) {
       const html = await request.text();
       const div = document.createElement("div");
+
+      if (push) window.history.pushState({}, "", url);
 
       div.innerHTML = html;
 
@@ -102,6 +111,7 @@ class App {
   }
 
   addEventListeners() {
+    window.addEventListener("popstate", this.onPopState.bind(this));
     window.addEventListener("resize", this.onResize.bind(this));
   }
 
