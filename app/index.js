@@ -1,7 +1,10 @@
+import Canvas from "components/Canvas";
+
 import Home from "pages/Home";
 import Collections from "pages/Collections";
 import Details from "pages/Details";
 import About from "pages/About";
+
 import each from "lodash/each";
 
 import Preloader from "./components/Preloader";
@@ -11,6 +14,7 @@ class App {
   constructor() {
     this.createContent();
 
+    this.createCanvas();
     this.createPreloader();
     this.createNavigation();
     this.createPages();
@@ -30,6 +34,10 @@ class App {
   createPreloader() {
     this.preloader = new Preloader();
     this.preloader.once("completed", this.onPreloaded.bind(this));
+  }
+
+  createCanvas() {
+    this.canvas = new Canvas();
   }
 
   createContent() {
@@ -100,6 +108,10 @@ class App {
   }
 
   onResize() {
+    if (this.canvas && this.canvas.onPreloaded) {
+      this.canvas.onResize();
+    }
+
     if (this.page && this.page.onResize) this.page.onResize();
   }
 
